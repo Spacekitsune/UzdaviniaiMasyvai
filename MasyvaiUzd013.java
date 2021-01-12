@@ -25,6 +25,10 @@ public class MasyvaiUzd013 {
             }
         }
 
+        for (int i = 0; i < n; i++) {
+            System.out.print(arrD[i] + " ");
+        }
+
         int[] arrE = new int [counter];
 
         for (int i=0; i<counter;i++) {
@@ -35,9 +39,7 @@ public class MasyvaiUzd013 {
             }
         }
 
-        for (int i = 0; i < n; i++) {
-            System.out.print(arrD[i] + " ");
-        }
+
         System.out.println(" ");
         for (int i = 0; i < counter; i++) {
             System.out.print(arrE[i] + " ");

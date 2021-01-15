@@ -4,11 +4,12 @@ package UzdaviniaiMasyvai;
 //Šio masyvo elementus patalpinkite į naują masyvą  pradžioje surašydami
 //neigiamus elementus, toliau – nulinius ir teigiamus. Surūšiuoti nereikia.
 
+import java.util.Arrays;
 import java.util.Scanner;
 public class MasyvaiUzd018 {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        int n = 10;
+        int n = 40;
         int[] arrT = new int[n];
         int[] arrS = new int[arrT.length];
 
@@ -21,29 +22,38 @@ public class MasyvaiUzd018 {
             arrT[i] = getRandom(a, b);
         }
 
-        for (int k :arrT) {
-            System.out.print(+k + " ");
-        }
+        System.out.println(Arrays.toString(arrT));
         System.out.println("lenght");
 
         int temp=0;
 
-        for (int i = 0; i < arrT.length; i++) {
-            for (int j = i + 1; j < arrT.length; j++) {
-                if (arrT[i] > arrT[j])
-                {
-                    temp = arrT[i];
-                    arrT[i] = arrT[j];
-                    arrT[j] = temp;
+        for (int i = 0; i < arrS.length; i++) {
+            for (int j = 0; j < arrT.length; j++) {
+                if (arrT[j] < 0) {
+                    temp = arrT[j];
+                    arrS[i] = temp;
+                    i++;
+                }
+            }
+            for (int j = 0; j < arrT.length; j++) {
+                if (arrT[j] == 0) {
+                    temp = arrT[j];
+                    arrS[i] = temp;
+                    i++;
+                }
+            }
+
+            for (int j = 0; j < arrT.length; j++) {
+                if (arrT[j]>0) {
+                    temp = arrT[j];
+                    arrS[i] = temp;
+                    ;
+                    i++;
                 }
             }
         }
 
-
-        for (int k :arrS) {
-            System.out.print(k + " ");
-        }
-
+        System.out.println(Arrays.toString(arrS));
 
         reader.close();
     }

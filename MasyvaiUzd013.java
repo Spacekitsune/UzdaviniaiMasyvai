@@ -4,6 +4,8 @@ package UzdaviniaiMasyvai;
 //Parašykite programą, kuri šio masyvo teigiamus  elementus
 //surašytų į masyvą arrE[m] ir atspausdintų šį masyvą.
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 public class MasyvaiUzd013 {
     public static void main(String[] args) {
@@ -16,36 +18,34 @@ public class MasyvaiUzd013 {
         System.out.print("Iveskite intervalo pabaigos skaičių: ");
         int b = reader.nextInt();
 
-        int counter=0;
+        int counter = 0;
 
         for (int i = 0; i < n; i++) {
             arrD[i] = getRandom(a, b);
-            if (arrD[i]>0){
-              counter++;
+            if (arrD[i] > 0) {
+                counter++;
             }
         }
 
-        for (int i = 0; i < n; i++) {
-            System.out.print(arrD[i] + " ");
-        }
+        // Prints whole array without for loop
+        System.out.println(Arrays.toString(arrD));
 
-        int[] arrE = new int [counter];
+        int[] arrE = new int[counter];
 
-        for (int i=0; i<counter;i++) {
-            if (arrD[i]>0) {
-                arrE[i]=arrD[i];
-            } else if (arrD[i]<=0) {
-                arrE[i]=arrD[i+1];
+        for (int i = 0; i < arrE.length; i++) {
+
+            for (int j = 0; j < arrD.length; j++) {
+                if (arrD[j] > 0) {
+                    arrE[i]=arrD[j];
+                    i++;
+                }
             }
         }
+        System.out.println(Arrays.toString(arrE));
 
-
-        System.out.println(" ");
-        for (int i = 0; i < counter; i++) {
-            System.out.print(arrE[i] + " ");
-        }
         reader.close();
     }
+
     private static int getRandom(int a, int b) {
         return (a + (int) (Math.random() * ((b - a) + 1)));
 

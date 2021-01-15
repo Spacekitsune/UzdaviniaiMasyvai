@@ -44,6 +44,5 @@ public class MasyvaiUzd023 {
 
     private static int getRandom(int a, int b) {
         return (a + (int) (Math.random() * ((b - a) + 1)));
-
     }
 }

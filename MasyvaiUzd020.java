@@ -23,40 +23,27 @@ public class MasyvaiUzd020 {
 
         int max=0;
         int min=10;
+        int countMax=0;
+        int countMin=0;
+
 
         for(int i=0; i<evalue.length;i++){
-            if (evalue[i]>max) {
+            if (evalue[i]>=max) {
                 max=evalue[i];
+                countMax=i;
             }
-            if (evalue[i]<min) {
+            else if (evalue[i]<=min) {
                 min=evalue[i];
+                countMin=i;
             }
         }
 
-        int sum=0;
+        double sum=0;
         int[] forSum = new int[evalue.length-2];
-
-        int min1=0;
-        int max1=0;
-
-        for (int i=0; i< evalue.length;i++){
-            if (evalue[i]==max) {
-                max1=evalue[i];
-            }
-            break;
-        }
-
-        for (int i=0; i< evalue.length;i++){
-            if (evalue[i]==min) {
-                min1=evalue[i];
-            }
-            break;
-        }
-
 
         for (int i=0; i< forSum.length;i++) {
             for (int j=0; j<evalue.length;j++) {
-                if ((evalue[j]!=min1)&&(evalue[j]!=max1)) {
+                if ((j!=countMin)&&(j!=countMax)) {
                     forSum[i]=evalue[j];
                     i++;
                 }
@@ -71,13 +58,12 @@ public class MasyvaiUzd020 {
 
         double avrg=sum/ forSum.length;
 
-        System.out.printf(" Galutinis įvertinimas: %.2f", avrg);
+        System.out.printf("Galutinis įvertinimas: %.2f", avrg);
 
 
     }
 
     private static int getRandom(int a, int b) {
         return (a + (int) (Math.random() * ((b - a) + 1)));
-
     }
 }
